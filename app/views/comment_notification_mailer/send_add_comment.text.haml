@@ -1,0 +1,11 @@
+New comment added.
+%p
+Please Approve or delete.
+%p
+Blog: #{ @blog.title }
+%br
+Entry: #{ @entry.title }
+%br
+Comment: #{ @comment.body }
+%p
+See comment #{ blog_entry_url(@blog, @entry) }

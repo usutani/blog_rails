@@ -1,0 +1,15 @@
+
+%table
+  %thead
+    %tr
+      %th Body
+      %th Status
+      /%th Entry
+      %th{:colspan => "3"}
+
+  %tbody
+    - @comments.each do |comment|
+      %tr
+        %td #{isapproved_comment_body(comment)}
+        %td #{isapproved_comment_button(@blog, @entry, comment)}
+        %td #{link_to 'Destroy', blog_entry_comment_path(@blog, @entry, comment), method: :delete, data: { confirm: 'Are you sure?' }}

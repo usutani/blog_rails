@@ -1,0 +1,6 @@
+%h1 Editing Entry
+
+= render 'form'
+
+= link_to 'Show', blog_entry_path(@entry.blog, @entry) |
+= link_to 'Back', blog_path(@entry.blog)

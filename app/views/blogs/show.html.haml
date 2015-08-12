@@ -1,0 +1,25 @@
+%p{:id => "notice"} #{ notice }
+
+%p
+  %h1 Title: #{@blog.title}
+
+= link_to 'Edit', edit_blog_path(@blog) |
+= link_to 'Back', blogs_path
+
+%p
+  %h2 Listing Entries
+  %table
+    %thead
+    %tr
+      %th Title
+      %th{:colspan => 4} Body
+    %tbody
+      - @blog.entries.each do |entry|
+        %tr
+          %td{:class=>"title"}  #{ entry.title }
+          %td{:class=>"body"} #{entry.body}
+          %td{:class=>"link-show"}  #{ link_to 'Show', blog_entry_path(@blog, entry) }
+          %td{:class=>"link-edit"}  #{ link_to 'Edit', edit_blog_entry_path(@blog, entry) }
+          %td{:class=>"link-destroy"}  #{ link_to 'Destroy', blog_entry_path(@blog, entry), method: :delete, data: { confirm: 'Are you sure?' } }
+
+= link_to "New-Entry", new_blog_entry_path(@blog)

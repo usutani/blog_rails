@@ -1,0 +1,23 @@
+%p{:id=>"notice"} #{notice}
+
+%p
+%h1 #{@entry.blog.title}
+
+%p
+  %h2 Title: #{@entry.title}
+
+%p
+  %h2 Body: #{@entry.body}
+
+= link_to 'Edit', edit_blog_entry_path(@entry.blog, @entry)  |
+= link_to 'Back', blog_path(@entry.blog)
+
+
+%p
+  %h2 Listing comments:
+
+  = render :partial => 'comments/list'
+%p
+  %h2 New comment
+
+  = render 'comments/form'
